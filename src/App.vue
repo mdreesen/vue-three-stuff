@@ -2,6 +2,10 @@
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
 import CountriesList from './components/CountriesList.vue';
+import { defineAsyncComponent } from 'vue';
+
+// mapbox-gl is large; load it in its own chunk.
+const MapView = defineAsyncComponent(() => import('./components/MapView.vue'));
 </script>
 
 <template>
@@ -14,6 +18,7 @@ import CountriesList from './components/CountriesList.vue';
   </header>
 
   <main>
+    <MapView />
     <CountriesList />
     <TheWelcome />
   </main>
